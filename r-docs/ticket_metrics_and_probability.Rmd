@@ -1,0 +1,44 @@
+---
+title: "Ticket Metrics and Probablity"
+author: "Chris Mulvihill"
+date: "5/2/2021"
+output:
+  
+  word_document: 
+    fig_caption: yes
+---
+
+# Hypothesis One:
+
+## Outliers Impact The Average
+
+I believe that the ticket metrics are being weighted in either direction by *extreme outliers*. This would cause the average (or mean) to be swayed away from a true representation of most tickets.
+
+For example: if you take a series of numbers like this one:
+
+```{r, echo=FALSE}
+nums <- c(4, 5, 5, 6, 3, 4, 100)
+nums
+```
+
+The average of these numbers is
+
+```{r, echo=FALSE}
+mean(nums)
+```
+
+  However, most of these numbers are much lower than the average. Only one number, 100, is higher than the average. This shows that a single value that is well above or well below the rest of the data will sway the average and misrepresent the data as a whole.
+
+  In this case, it would be better to use the median (the middle number) to find where most the data is.
+
+```{r, echo=FALSE}
+median(nums)
+```
+
+  The median shows us that the middle value is 5. Since this is relatively far from the mean, we can assume that there are extreme outliers that are impacting the data.
+
+  In this summary, we see that most the values are between 4 and 5.5. since the mean is beyond the 3rd quartile, we have further evidence of our suspicions that outliers are impacting our analysis.
+
+```{r, echo=FALSE}
+summary(nums)
+```
